@@ -15,6 +15,17 @@ async function startServer() {
   app.use(express.json({ limit: "50mb" }));
   app.use(express.urlencoded({ limit: "50mb", extended: true }));
   app.get("/api/health", (_req, res) => res.json({ status: "ok" }));
+  app.post("/api/inquiries", (req, res) => {
+    const payload = req.body as Record<string, unknown>;
+    const type = typeof payload.type === "string" ? payload.type : "inquiry";
+    const requiredFields = type === "contact" ? ["studentName", "email", "message"] : ["studentName", "email", "course", "timing", "teacherPreference"];
+    const missing = requiredFields.filter(field => !payload[field] || String(payload[field]).trim() === "");
+    if (missing.length > 0) {
+      return res.status(400).json({ success: false, message: "Please complete the required fields.", missing });
+    }
+    console.info("[Academy inquiry]", { type, studentName: payload.studentName, course: payload.course, createdAt: new Date().toISOString() });
+    return res.status(201).json({ success: true, received: true, message: "Your request has been received." });
+  });
   app.get("/api/platform/config.js", (_req, res) => {
     res.set("Cache-Control", "no-store").type("application/javascript").send(publicPlatformScript());
   });

@@ -1,0 +1,20 @@
+{
+  "routes": [
+    { "path": "/", "title": "Home — Shoaib Online Quran Academy" },
+    { "path": "/about", "title": "About the Academy" },
+    { "path": "/courses", "title": "Our Courses" },
+    { "path": "/course/:slug", "title": "Course Details" },
+    { "path": "/teachers", "title": "Our Teacher" },
+    { "path": "/female-teachers", "title": "Female Quran Teachers Available" },
+    { "path": "/why-us", "title": "Why Choose Us" },
+    { "path": "/pricing", "title": "Pricing Plans" },
+    { "path": "/free-trial", "title": "Start Your Free Trial" },
+    { "path": "/admission", "title": "Online Admission" },
+    { "path": "/registration", "title": "Student Registration" },
+    { "path": "/contact", "title": "Contact Us" },
+    { "path": "/faq", "title": "Frequently Asked Questions" },
+    { "path": "/privacy", "title": "Privacy Policy" },
+    { "path": "/terms", "title": "Terms and Conditions" },
+    { "path": "/admin", "title": "Academy Admin" }
+  ]
+}
