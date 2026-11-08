@@ -38,6 +38,7 @@ const whatsappNumber = "923176262240";
 const whatsappLabel = "+92 317 6262240";
 const whatsappUrl = `https://wa.me/${whatsappNumber}`;
 const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+const teacherPhoto = asset("teacher-muhammad-shoaib.png");
 
 const courses = [
   {
@@ -270,7 +271,7 @@ function CoursesSection() {
 }
 
 function TeacherSection() {
-  return <section className="section teacher-section" id="teachers"><div className="container teacher-grid"><div className="teacher-portrait"><div className="portrait-arch"><div className="portrait-slot"><UserRound size={58} strokeWidth={1.1} /><strong>Portrait slot</strong><span>Admin-managed photo</span></div></div><span className="portrait-caption">Your supplied photograph will be placed here<br />without altering your identity.</span></div><div className="teacher-copy"><SectionHeading eyebrow="The teacher" title="A calm guide, present for every step." text="One main teacher profile. One clear promise: your learning deserves attention." /><p>The academy’s teaching experience is designed around patience, consistency, and personal correction. This section is ready for the academy owner’s verified photograph, introduction, qualifications, and experience when supplied through the admin panel.</p><div className="teacher-facts"><span><strong>01</strong><small>Main teacher profile</small></span><span><strong>1:1</strong><small>Private live lessons</small></span><span><strong>∞</strong><small>Room to grow</small></span></div><a className="text-link" href="#/teachers">Meet the teacher <ArrowRight size={16} /></a></div></div></section>;
+  return <section className="section teacher-section" id="teachers"><div className="container teacher-grid"><div className="teacher-portrait"><div className="portrait-arch"><img className="teacher-photo" src={teacherPhoto} alt="Muhammad Shoaib, Quran teacher" /></div><span className="portrait-caption"><strong>Muhammad Shoaib</strong><br />Quran teacher · One-to-one learning</span></div><div className="teacher-copy"><SectionHeading eyebrow="The teacher" title="A calm guide, present for every step." text="Meet Muhammad Shoaib, your academy’s main Quran teacher." /><p>Muhammad Shoaib teaches with patience, consistency, and personal attention. Every lesson is shaped around the learner’s level, preferred timing, and Quran learning goals.</p><div className="teacher-facts"><span><strong>01</strong><small>Main teacher profile</small></span><span><strong>1:1</strong><small>Private live lessons</small></span><span><strong>∞</strong><small>Room to grow</small></span></div><a className="text-link" href="#/teachers">Meet the teacher <ArrowRight size={16} /></a></div></div></section>;
 }
 
 function FemaleTeachersSection() {
