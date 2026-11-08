@@ -37,6 +37,7 @@ import { Link } from "wouter";
 const whatsappNumber = "923176262240";
 const whatsappLabel = "+92 317 6262240";
 const whatsappUrl = `https://wa.me/${whatsappNumber}`;
+const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
 
 const courses = [
   {
@@ -50,6 +51,7 @@ const courses = [
     duration: "8–12 weeks",
     age: "Ages 5+",
     icon: BookOpen,
+    image: asset("reference/course-qaida.png"),
   },
   {
     number: "02",
@@ -62,6 +64,7 @@ const courses = [
     duration: "Flexible pace",
     age: "All ages",
     icon: ScrollText,
+    image: asset("reference/course-nazra.png"),
   },
   {
     number: "03",
@@ -74,6 +77,7 @@ const courses = [
     duration: "12+ weeks",
     age: "Ages 10+",
     icon: Compass,
+    image: asset("reference/course-translation.png"),
   },
   {
     number: "04",
@@ -86,6 +90,7 @@ const courses = [
     duration: "Personal plan",
     age: "Ages 7+",
     icon: Star,
+    image: asset("reference/course-hifz.png"),
   },
   {
     number: "05",
@@ -98,6 +103,7 @@ const courses = [
     duration: "8–16 weeks",
     age: "All ages",
     icon: HeartHandshake,
+    image: asset("reference/course-islamic-studies.png"),
   },
   {
     number: "06",
@@ -110,6 +116,7 @@ const courses = [
     duration: "10–16 weeks",
     age: "Ages 8+",
     icon: Sparkles,
+    image: asset("reference/course-nazra.png"),
   },
   {
     number: "07",
@@ -122,6 +129,7 @@ const courses = [
     duration: "Flexible pace",
     age: "Ages 5+",
     icon: GraduationCap,
+    image: asset("reference/course-islamic-studies.png"),
   },
 ];
 
@@ -254,7 +262,7 @@ function ReflectionSection() {
 
 function CourseCard({ course }: { course: typeof courses[number] }) {
   const Icon = course.icon;
-  return <article className="course-card"><div className="course-card-top"><span className="course-number">{course.number}</span><span className="course-icon"><Icon size={21} /></span></div><h3>{course.title}</h3><p>{course.short}</p><div className="course-tags">{course.outcomes.map(outcome => <span key={outcome}>{outcome}</span>)}</div><div className="course-card-bottom"><span>{course.duration}</span><a href={`#/course/${course.slug}`} aria-label={`View ${course.title} details`}>View details <ArrowUpRight size={15} /></a></div></article>;
+  return <article className="course-card"><div className="course-image-wrap"><img className="course-image" src={course.image} alt={`${course.title} Quran course`} /><span className="course-number">{course.number}</span><span className="course-icon"><Icon size={21} /></span></div><h3>{course.title}</h3><p>{course.short}</p><div className="course-tags">{course.outcomes.map(outcome => <span key={outcome}>{outcome}</span>)}</div><div className="course-card-bottom"><span>{course.duration}</span><a href={`#/course/${course.slug}`} aria-label={`View ${course.title} details`}>View details <ArrowUpRight size={15} /></a></div></article>;
 }
 
 function CoursesSection() {
